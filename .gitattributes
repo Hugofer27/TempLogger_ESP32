@@ -1,0 +1,4 @@
+# Los CSV del logger terminan en CRLF (el ESP32 escribe con println) y ese
+# formato es parte del contrato. -text evita que Git convierta los fines de
+# línea al guardar o al descargar, así el archivo queda idéntico en cualquier PC.
+*.csv -text

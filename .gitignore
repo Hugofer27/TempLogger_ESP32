@@ -1,0 +1,11 @@
+# Archivos que Python genera solos
+__pycache__/
+.pytest_cache/
+.venv/
+
+# Configuración local de herramientas
+.claude/
+.vscode/
+
+# Datos de la demostración en vivo (se generan, no se guardan)
+data_live/
