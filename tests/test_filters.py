@@ -35,6 +35,14 @@ def test_today_on_a_normal_day(sample):
     assert rows_in(sample, filters.TODAY, anchor) == 1440
 
 
+def test_today_lasts_25_hours_when_daylight_saving_ends():
+    # 5 de abril de 2026: a las 03:00 el reloj vuelve a las 02:00.
+    anchor = pd.Timestamp("2026-04-05T05:00:00Z")
+    window = filters.preset_window(filters.TODAY, anchor, MELBOURNE)
+    assert window.end - window.start == pd.Timedelta(hours=25)
+    assert window.start == pd.Timestamp("2026-04-04T13:00:00Z")  # 00:00 con UTC+11
+
+
 def test_today_in_utc(sample):
     # Del 4 de octubre 00:00Z a 12:59Z hay 13 h de datos.
     assert rows_in(sample, filters.TODAY, tz="UTC") == 13 * 60
