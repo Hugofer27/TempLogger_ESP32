@@ -66,9 +66,11 @@ The dashboard is not built around three fixed variables. Any new numeric column 
 
 ## Install
 
-You need Python 3.12 or newer.
+You need Python 3.12 or newer and Git.
 
 ```bash
+git clone https://github.com/Hugofer27/TempLogger_ESP32.git
+cd TempLogger_ESP32
 python -m venv .venv
 .venv\Scripts\python.exe -m pip install -r requirements.txt
 ```
